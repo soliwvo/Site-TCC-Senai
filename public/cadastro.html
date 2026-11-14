@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crie uma Conta | NEXA PLAY</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="navbar-nexa">
+    <a href="index.html" class="logo-nexa-play">NEXA PLAY</a>
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="nexaquest.html">NexaQuest</a>
+      <a href="acesso.html" id="nav-Acesso-conta" class="ativo">Acesso</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </header>
+
+  <main class="fundo-grid-magenta">
+    <div class="caixa-etapa-preta">
+
+      <!-- ETAPA 1: Desktop - 4 (Nome e Data de Nascimento) -->
+      <div id="passo-1" class="etapa-step ativa">
+        <div class="etapa-duas-colunas">
+          <div class="coluna-avatar-titulo">
+            <div class="avatar-circulo">
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+            </div>
+            <h1 class="titulo-caixa-etapa">CRIE<br>UMA<br>CONTA</h1>
+          </div>
+
+          <div>
+            <div class="campo-figma">
+              <label for="cad-nome">NOME</label>
+              <input type="text" id="cad-nome" required>
+            </div>
+
+            <div class="campo-figma">
+              <label>DATA DE NASCIMENTO</label>
+              <div class="inputs-data-nascimento">
+                <input type="text" id="cad-dia" class="dia" maxlength="2" placeholder="DD">
+                <input type="text" id="cad-mes" class="mes" maxlength="2" placeholder="MM">
+                <input type="text" id="cad-ano" class="ano" maxlength="4" placeholder="AAAA">
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 28px;">
+              <button type="button" id="btn-ir-passo-2" class="btn-avancar-contorno">AVANÇAR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 2: Desktop - 6 (Email, Senha e Confirme a Senha) -->
+      <div id="passo-2" class="etapa-step">
+        <div class="etapa-duas-colunas">
+          <div class="coluna-avatar-titulo">
+            <div class="avatar-circulo">
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+            </div>
+            <h2 class="titulo-caixa-etapa">CRIE<br>UMA<br>CONTA</h2>
+            <button type="button" id="btn-ir-passo-3" class="btn-avancar-contorno">AVANÇAR</button>
+          </div>
+
+          <div>
+            <div class="campo-figma">
+              <label for="cad-email">EMAIL</label>
+              <input type="email" id="cad-email" required>
+            </div>
+
+            <div class="campo-figma">
+              <label for="cad-senha">SENHA</label>
+              <input type="password" id="cad-senha" required>
+            </div>
+
+            <div class="campo-figma">
+              <label for="cad-confirma-senha">CONFIRME A SENHA</label>
+              <input type="password" id="cad-confirma-senha" required>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 3: Desktop - 9 (Coloque uma foto para seu perfil) -->
+      <div id="passo-3" class="etapa-step">
+        <div class="etapa-centralizada">
+          <div class="avatar-circulo grande" id="avatar-etapa-3">
+            <svg id="icone-avatar-padrao" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+            <img id="preview-foto-cadastro" class="foto-preview" style="display: none;" alt="Foto de perfil">
+            <button type="button" id="btn-escolher-foto" class="btn-mais-foto" title="Escolher foto">+</button>
+            <input type="file" id="input-foto-cadastro" accept="image/*" style="display: none;">
+          </div>
+
+          <h2 class="titulo-caixa-etapa">COLOQUE UMA FOTO PARA<br>SEU PERFIL</h2>
+
+          <button type="button" id="btn-ir-passo-4" class="btn-avancar-contorno">AVANÇAR</button>
+        </div>
+      </div>
+
+      <!-- ETAPA 4: Desktop - 10 (Escolha um nome) -->
+      <div id="passo-4" class="etapa-step">
+        <div class="etapa-centralizada">
+          <h2 class="titulo-caixa-etapa">ESCOLHA UM NOME</h2>
+
+          <div class="campo-figma" style="width: 100%; max-width: 500px;">
+            <input type="text" id="cad-nickname" placeholder="Seu nome de exibição no jogo">
+          </div>
+
+          <button type="button" id="btn-finalizar-cadastro" class="btn-avancar-contorno">AVANÇAR</button>
+        </div>
+      </div>
+
+      <p id="mensagem" class="msg-feedback"></p>
+    </div>
+  </main>
+
+  <script src="js/comum.js"></script>
+  <script src="js/cadastro.js"></script>
+</body>
+</html>

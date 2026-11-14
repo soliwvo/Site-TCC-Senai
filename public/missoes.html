@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missões | Nexa Quest</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="logo">🎮 Nexa Quest</div>
+    <nav class="menu">
+      <a href="painel.html">Painel</a>
+      <a href="missoes.html" class="ativo">Missões</a>
+      <a href="conquistas.html">Conquistas</a>
+      <a href="index.html" id="link-sair">Sair</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Missões e Jornadas</h1>
+
+    <section class="cartao" id="secao-cadastro-missao">
+      <h2>Cadastrar nova missão (Administrador)</h2>
+      <form id="form-missao">
+        <label for="titulo">Título da Missão</label>
+        <input type="text" id="titulo" placeholder="Ex.: Mestre da Lógica" required>
+
+        <label for="jornada">Jornada</label>
+        <input type="text" id="jornada" placeholder="Ex.: Jornada Lógica & Código" required>
+
+        <label for="descricao">Descrição do Desafio</label>
+        <textarea id="descricao" rows="2" placeholder="Descreva o objetivo da missão..." required></textarea>
+
+        <label for="dificuldade">Dificuldade</label>
+        <select id="dificuldade" required>
+          <option value="facil">Fácil</option>
+          <option value="medio">Médio</option>
+          <option value="dificil">Difícil</option>
+        </select>
+
+        <label for="pontos_recompensa">Recompensa (XP)</label>
+        <input type="number" id="pontos_recompensa" min="10" value="100" required>
+
+        <button type="submit" class="botao">Cadastrar Missão</button>
+      </form>
+    </section>
+
+    <p id="mensagem" class="mensagem" style="margin-bottom: 16px;"></p>
+
+    <section class="cartao">
+      <h2>Missões Disponíveis</h2>
+
+      <div class="linha-busca">
+        <input type="text" id="busca-nome" placeholder="Buscar missão pelo título...">
+        <button type="button" id="botao-buscar" class="botao">Buscar</button>
+      </div>
+
+      <div class="tabela-rolagem">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Missão</th>
+              <th>Jornada</th>
+              <th>Dificuldade</th>
+              <th>XP</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-missoes">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="paginacao">
+        <button type="button" id="botao-anterior" class="botao botao-pequeno">Anterior</button>
+        <span>Página <strong id="numero-pagina">1</strong></span>
+        <button type="button" id="botao-proxima" class="botao botao-pequeno">Próxima</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    Nexa Play &copy; 2026 | Plataforma Nexa Quest
+  </footer>
+
+  <script src="js/comum.js"></script>
+  <script src="js/missoes.js"></script>
+</body>
+</html>

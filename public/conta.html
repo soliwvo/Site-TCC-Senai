@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conta | NEXA PLAY</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="navbar-nexa">
+    <a href="index.html" class="logo-nexa-play">NEXA PLAY</a>
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="nexaquest.html">NexaQuest</a>
+      <a href="conta.html" id="nav-AcAesso-conta" class="ativo">Conta</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </header>
+
+  <main class="pagina-conta">
+    <!-- Parte Superior: Avatar e Nome -->
+    <section class="conta-topo">
+      <div class="avatar-circulo">
+        <svg id="conta-avatar-svg" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+        <img id="conta-foto-img" class="foto-preview" style="display: none;" alt="Avatar do jogador">
+        <button type="button" id="btn-trocar-foto-conta" class="btn-mais-foto" title="Alterar foto">+</button>
+        <input type="file" id="input-foto-conta" accept="image/*" style="display: none;">
+      </div>
+
+      <label for="conta-nome" class="conta-label-nome">NOME</label>
+      <input type="text" id="conta-nome" class="conta-input-nome" readonly>
+    </section>
+
+    <!-- Parte Inferior: INFORMAÇÕES -->
+    <section class="conta-info-secao">
+      <h1 class="conta-info-titulo">INFORMAÇÕES</h1>
+
+      <div class="caixa-info-lima">
+        <div class="linha-info-conta">
+          <label>DATA DE<br>NASCIMENTO</label>
+          <div class="data-magenta-grupo">
+            <input type="text" id="conta-dia" class="campo-branco-magenta" value="15" readonly>
+            <input type="text" id="conta-mes" class="campo-branco-magenta" value="08" readonly>
+            <input type="text" id="conta-ano" class="campo-branco-magenta ano" value="2005" readonly>
+          </div>
+        </div>
+
+        <div class="linha-info-conta">
+          <label for="conta-senha">SENHA</label>
+          <input type="password" id="conta-senha" class="campo-branco-magenta" value="********" readonly>
+        </div>
+      </div>
+
+      <!-- Progresso Nexa Quest + Sair -->
+      <div class="painel-xp-conta">
+        <div>
+          <strong style="color: var(--lima); font-size: 1.15rem;">PROGRESSO NEXA QUEST</strong>
+          <p id="conta-stats-xp" style="margin-top: 4px; color: var(--branco);">
+            Carregando nível e XP...
+          </p>
+        </div>
+        <button type="button" id="btn-sair-conta" class="btn-hero-magenta" style="font-size: 1rem; padding: 10px 22px; cursor: pointer;">
+          SAIR DA CONTA
+        </button>
+      </div>
+
+      <p id="mensagem" class="msg-feedback"></p>
+    </section>
+  </main>
+
+  <script src="js/comum.js"></script>
+  <script src="js/conta.js"></script>
+</body>
+</html>

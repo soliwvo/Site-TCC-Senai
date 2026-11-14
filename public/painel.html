@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel | Nexa Quest</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="logo">🎮 Nexa Quest</div>
+    <nav class="menu">
+      <a href="painel.html" class="ativo">Painel</a>
+      <a href="missoes.html">Missões</a>
+      <a href="conquistas.html">Conquistas</a>
+      <a href="index.html" id="link-sair">Sair</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 id="boas-vindas">Olá, Explorador!</h1>
+
+    <section class="cartao">
+      <h2>Seu Progresso na Jornada</h2>
+      <div class="stats-jogador">
+        <span>Nível Atual: <strong id="usuario-nivel">1</strong></span>
+        <span>XP Total: <strong id="usuario-xp">0</strong> XP</span>
+        <span>Perfil: <strong id="usuario-tipo">jogador</strong></span>
+      </div>
+      <div class="barra-xp-fundo">
+        <div id="barra-xp" class="barra-xp-preenchimento"></div>
+      </div>
+      <p id="texto-proximo-nivel" class="subtitulo" style="margin-bottom: 0;">
+        Faltam 500 XP para o próximo nível!
+      </p>
+      <p id="mensagem" class="mensagem"></p>
+    </section>
+
+    <div class="grade">
+      <a href="missoes.html" class="cartao card-atalho">
+        <div class="icone">⚔️</div>
+        <h2>Missões e Jornadas</h2>
+        <p>Explore desafios, conclua missões e ganhe pontos de experiência.</p>
+      </a>
+
+      <a href="conquistas.html" class="cartao card-atalho">
+        <div class="icone">🏆</div>
+        <h2>Conquistas e Histórico</h2>
+        <p>Veja seus badges desbloqueados e o histórico de missões concluídas.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    Nexa Play &copy; 2026 | Plataforma Nexa Quest
+  </footer>
+
+  <script src="js/comum.js"></script>
+  <script src="js/painel.js"></script>
+</body>
+</html>

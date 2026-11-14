@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso | NEXA PLAY</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="navbar-nexa">
+    <a href="index.html" class="logo-nexa-play">NEXA PLAY</a>
+    <nav class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="nexaquest.html">NexaQuest</a>
+      <a href="acesso.html" id="nav-Acesso-conta" class="ativo">Acesso</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </header>
+
+  <main class="fundo-grid-magenta">
+    <div class="caixa-acesso">
+      <form id="form-login">
+        <div class="acesso-grid">
+          <h1 class="acesso-titulo">ENTRAR<br>NA SUA<br>CONTA</h1>
+
+          <div>
+            <div class="campo-figma">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" required>
+            </div>
+
+            <div class="campo-figma" style="margin-bottom: 8px;">
+              <label for="senha">SENHA</label>
+              <input type="password" id="senha" required>
+              <a href="recuperar-senha.html" class="link-esqueceu">Esqueceu a senha?</a>
+            </div>
+          </div>
+        </div>
+
+        <p id="mensagem" class="msg-feedback"></p>
+
+        <div class="aba-btn-entrar">
+          <button type="submit" class="btn-branco-solido">ENTRAR</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="acesso-acoes-inferiores">
+      <a href="cadastro.html" class="btn-crie-conta">CRIE UMA CONTA</a>
+
+      <button type="button" id="btn-google-login" class="btn-google-figma">
+        <span class="g-marca">G</span>
+        <span>ENTRE COM O GOOGLE</span>
+      </button>
+    </div>
+  </main>
+
+  <script src="js/comum.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

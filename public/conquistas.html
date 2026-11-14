@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conquistas | Nexa Quest</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="logo">🎮 Nexa Quest</div>
+    <nav class="menu">
+      <a href="painel.html">Painel</a>
+      <a href="missoes.html">Missões</a>
+      <a href="conquistas.html" class="ativo">Conquistas</a>
+      <a href="index.html" id="link-sair">Sair</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Conquistas e Histórico</h1>
+    <p id="mensagem" class="mensagem" style="margin-bottom: 16px;"></p>
+
+    <section class="cartao">
+      <h2>Badges e Conquistas</h2>
+      <div id="grade-conquistas" class="grade">
+      </div>
+    </section>
+
+    <section class="cartao">
+      <h2>Histórico de Missões Concluídas</h2>
+      <div class="tabela-rolagem">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Missão</th>
+              <th>Status</th>
+              <th>XP Ganho</th>
+            </tr>
+          </thead>
+          <tbody id="lista-historico">
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    Nexa Play &copy; 2026 | Plataforma Nexa Quest
+  </footer>
+
+  <script src="js/comum.js"></script>
+  <script src="js/conquistas.js"></script>
+</body>
+</html>

@@ -1,0 +1,1916 @@
+/* ==========================================================================
+   NEXA PLAY / NEXA QUEST — FOLHA DE ESTILOS FIEL AO PROTÓTIPO DO FIGMA
+   Fontes reconhecidas:
+   - Chakra Petch (UI, títulos, textos, formulários)
+   - Montserrat 900 Black (Logotipo NEXA PLAY)
+   - Silkscreen (Títulos pixel art NEXA QUEST)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Montserrat:wght@800;900&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+/* Fonte Aldrich e tamanho maior nos links do menu (.nav-links) em TODAS as páginas */
+html body header nav.nav-links a,
+html body .navbar-nexa nav.nav-links a,
+html body .navbar-floresta nav.nav-links a,
+html body #nav-Acesso-conta {
+  font-family: 'Aldrich', sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 400 !important;
+}
+
+/* Título "MANDE UMA MENSAGEM" e traços segmentados exatos do protótipo (aba Sobre) */
+.titulo-mande-mensagem {
+  display: inline-block !important;
+  position: relative !important;
+  font-family: 'Aldrich', sans-serif !important;
+  font-weight: 400 !important;
+  color: #B9D15E !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  padding-bottom: 14px !important;
+}
+
+.titulo-mande-mensagem::before {
+  content: none !important;
+}
+
+.titulo-mande-mensagem::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 7px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: linear-gradient(
+    90deg,
+    #B9D15E 0% 61.5%,
+    transparent 61.5% 63.5%,
+    #B9D15E 63.5% 81.5%,
+    transparent 81.5% 83.5%,
+    #B9D15E 83.5% 95.5%,
+    transparent 95.5% 97.8%,
+    #B9D15E 97.8% 100%
+  ) !important;
+}
+
+/* Oculta automaticamente linhas ou traços antigos logo abaixo do título */
+.titulo-mande-mensagem + hr,
+.titulo-mande-mensagem + [class*="traco"],
+.titulo-mande-mensagem + [class*="linha"],
+.titulo-mande-mensagem + [class*="sublinhado"] {
+  display: none !important;
+}
+
+/* 1. Telas escuras (Início, Sobre, etc.) */
+body:not(:has(.navbar-floresta)):not(:has(a[href*="acesso"].ativo)) {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 4px, transparent 4px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 4px, transparent 4px) !important;
+  background-size: 60px 60px !important;
+  background-position: top left !important;
+}
+
+/* 2. Tela Acesso (fundo magenta) */
+body:has(input[type="password"]),
+body:has(input[type="password"]) > main,
+body:has(input[type="password"]) > section {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 4px, transparent 4px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 4px, transparent 4px) !important;
+  background-size: 60px 60px !important;
+  background-position: top left !important;
+}
+
+/* Animação do botão ENVIAR (aba Sobre) com preenchimento ao passar o mouse */
+body:has(.titulo-mande-mensagem) form button,
+body:has(.titulo-mande-mensagem) form input[type="submit"],
+body:not(:has(input[type="password"])) form button[type="submit"],
+body:not(:has(input[type="password"])) form input[type="submit"],
+.btn-enviar-nexa {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  font-family: 'Aldrich', sans-serif !important;
+  letter-spacing: 1.5px !important;
+  cursor: pointer !important;
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+/* Camada que preenche o botão da esquerda para a direita */
+body:has(.titulo-mande-mensagem) form button::before,
+body:not(:has(input[type="password"])) form button[type="submit"]::before,
+.btn-enviar-nexa::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0% !important;
+  height: 100% !important;
+  background-color: #d2ee68 !important;
+  z-index: -1 !important;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  pointer-events: none !important;
+}
+
+/* Hover: elevação + preenchimento completo + sombra marcada */
+body:has(.titulo-mande-mensagem) form button:hover,
+body:has(.titulo-mande-mensagem) form input[type="submit"]:hover,
+body:not(:has(input[type="password"])) form button[type="submit"]:hover,
+body:not(:has(input[type="password"])) form input[type="submit"]:hover,
+.btn-enviar-nexa:hover {
+  transform: translateY(-4px) !important;
+  color: #000000 !important;
+  border-color: #d2ee68 !important;
+  box-shadow:
+    0 5px 0 #6f8522,
+    0 10px 22px rgba(185, 209, 94, 0.35) !important;
+}
+
+body:has(.titulo-mande-mensagem) form button:hover::before,
+body:not(:has(input[type="password"])) form button[type="submit"]:hover::before,
+.btn-enviar-nexa:hover::before {
+  width: 100% !important;
+}
+
+/* Clique (active): sensação de pressionar o botão */
+body:has(.titulo-mande-mensagem) form button:active,
+body:has(.titulo-mande-mensagem) form input[type="submit"]:active,
+body:not(:has(input[type="password"])) form button[type="submit"]:active,
+body:not(:has(input[type="password"])) form input[type="submit"]:active,
+.btn-enviar-nexa:active {
+  transform: translateY(1px) !important;
+  box-shadow: 0 2px 0 #6f8522 !important;
+}
+
+/* 1. Hover branco com texto rosa no botão JOGUE AGORA (página Início) */
+.btn-hero-magenta,
+.btn-hero-contorno{
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+.btn-hero-magenta:hover,
+.btn-hero-contorno:hover {
+  transform: translateY(-3px) !important;
+}
+
+.btn-hero-magenta:hover {
+  background-color: #FFFFFF !important;
+  color: #FF007F !important;
+  border-color: #FFFFFF !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Figura pixelada da página Início (.hero-direita-bloco) fica verde (#B9D15E) no hover */
+.hero-direita-bloco {
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.hero-direita-bloco img {
+  pointer-events: auto !important;
+  transition: filter 0.25s ease !important;
+}
+
+.hero-direita-bloco:hover img,
+.hero-direita-bloco img:hover {
+  filter: sepia(1) hue-rotate(32deg) saturate(2.00) brightness(1.70) !important;
+}
+
+/* Animações de hover dos botões na aba Acesso */
+.btn-acesso-entrar,
+.btn-acesso-criar,
+body:has(#nav-Acesso-conta.ativo) main button,
+body:has(#nav-Acesso-conta.ativo) main a {
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Moldura pixelada (cantos em degrau) em volta do globo na aba NexaQuest */
+.moldura-globo-pixel {
+border-radius: 0 !important;
+  box-shadow:
+    0 -6px 0 0 #1B431E,
+    0 6px 0 0 #1B431E,
+    -6px 0 0 0 #1B431E,
+    6px 0 0 0 #1B431E !important;
+}
+
+.moldura-globo-pixel img {
+  image-rendering: pixelated !important;
+}
+
+/* 1. Hover do botão "JOGUE AGORA" na aba NexaQuest (verde-claro com texto verde-escuro) */
+body:has(.navbar-floresta) .banner-floresta a,
+body:has(.navbar-floresta) .banner-floresta button,
+body:has(.navbar-floresta) main > section:first-child a,
+body:has(.navbar-floresta) main > section:first-child button,
+.btn-jogue-nexaquest {
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body:has(.navbar-floresta) .banner-floresta a:hover,
+body:has(.navbar-floresta) .banner-floresta button:hover,
+body:has(.navbar-floresta) main > section:first-child a:hover,
+body:has(.navbar-floresta) main > section:first-child button:hover,
+.btn-jogue-nexaquest:hover {
+  transform: translateY(-3px) !important;
+  background-color: #CBE69B !important;
+  color: #227836 !important;
+  border-color: #CBE69B !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 2. Sombra/brilho verde suave no entorno da logo NEXA QUEST */
+body:has(.navbar-floresta) .banner-floresta img[src*="logo"],
+body:has(.navbar-floresta) .banner-floresta img[src*="nexa"],
+body:has(.navbar-floresta) .banner-floresta > img:first-of-type,
+body:has(.navbar-floresta) .banner-floresta > div img:first-of-type,
+body:has(.navbar-floresta) main > section:first-child > div img:first-of-type,
+body:has(.navbar-floresta) main > section:first-child svg:first-of-type,
+.logo-nexaquest-hero {
+  filter:
+    drop-shadow(0 0 80px rgba(20, 75, 32, 0.98))
+    drop-shadow(0 0 7px rgba(10, 45, 18, 1)) !important;
+}
+
+/* Botão ENTRAR: sobe levemente, fundo preto e letras brancas */
+.btn-acesso-entrar:hover,
+body:has(#nav-Acesso-conta.ativo) main button[type="submit"]:hover,
+body:has(#nav-Acesso-conta.ativo) main form button:first-of-type:hover {
+  transform: translateY(-3px) !important;
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Botão CRIE UMA CONTA: sobe levemente, fundo branco e letras pretas */
+.btn-acesso-criar:hover,
+body:has(#nav-Acesso-conta.ativo) main button[type="button"]:hover,
+body:has(#nav-Acesso-conta.ativo) main form button:nth-of-type(2):hover,
+body:has(#nav-Acesso-conta.ativo) main a:hover {
+  transform: translateY(-3px) !important;
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border-color: #FFFFFF !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 2. Iguala o tamanho do nav entre Início (.navbar-nexa) e NexaQuest (.navbar-floresta) */
+.navbar-nexa,
+.navbar-floresta {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 115px !important;
+  min-height: 115px !important;
+  padding: 0 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* 3. Logo NEXA PLAY branca e maior na página NexaQuest (igual ao protótipo) */
+.navbar-floresta .logo-nexa-stacked {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: 'Montserrat', sans-serif !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+
+.navbar-floresta .logo-nexa-stacked .top {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  letter-spacing: 3px !important;
+  color: #FFFFFF !important;
+}
+
+.navbar-floresta .logo-nexa-stacked .bottom {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 58px !important;
+  line-height: 0.9 !important;
+  letter-spacing: 1px !important;
+  color: #FFFFFF !important;
+}
+
+/* Efeito hover do botão "JOGUE AGORA" na página Início */
+main > section:first-child:not(.banner-floresta) a:first-of-type,
+main > section:first-child:not(.banner-floresta) button:first-of-type,
+.btn-jogue-agora,
+.btn-jogue,
+.btn-rosa,
+#btn-jogue-agora {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+main > section:first-child:not(.banner-floresta) a:first-of-type:hover,
+main > section:first-child:not(.banner-floresta) button:first-of-type:hover,
+.btn-jogue-agora:hover,
+.btn-jogue:hover,
+.btn-rosa:hover,
+#btn-jogue-agora:hover {
+  background-color: #FFFFFF !important;
+  color: #FF007F !important;
+  border-color: #FFFFFF !important;
+  border-radius: 0 !important;
+}
+
+:root {
+  --lima: #B7D44B;
+  --lima-escuro: #9CB836;
+  --magenta: #F20089;
+  --magenta-grid: #C90072;
+  --preto: #050505;
+  --grid-escuro: #1F1F1F;
+  --branco: #FFFFFF;
+  --cinza-claro: #D9D9D9;
+  --cinza-input: #363636;
+
+  /* Paleta NexaQuest (Floresta / EcoQuest) */
+  --floresta-nav: #154726;
+  --floresta-ativo: #A7DC7E;
+  --floresta-verde: #3E9B4F;
+  --floresta-card: #C7E89E;
+  --floresta-globo: #B6E188;
+
+  --fonte-ui: 'Chakra Petch', sans-serif;
+  --fonte-logo: 'Montserrat', sans-serif;
+  --fonte-pixel: 'Silkscreen', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: var(--fonte-ui);
+  background-color: var(--preto);
+  color: var(--branco);
+}
+
+/* ==========================================================================
+   1. CABEÇALHO / NAVBAR (PADRÃO NEXA PLAY — VERDE LIMA)
+   ========================================================================== */
+.navbar-nexa {
+  background-color: var(--lima);
+  height: 76px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 20;
+}
+
+.logo-nexa-play {
+  font-family: var(--fonte-logo);
+  font-weight: 900;
+  font-size: 2.1rem;
+  color: var(--magenta);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-family: var(--fonte-ui);
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--preto);
+  text-decoration: none;
+  padding: 8px 14px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-links a:hover {
+  background-color: rgba(242, 0, 137, 0.2);
+}
+
+.nav-links a.ativo {
+  background-color: var(--magenta);
+  color: var(--preto);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO / NAVBAR (TEMA FLORESTA — PÁGINA NEXAQUEST)
+   ========================================================================== */
+.navbar-floresta {
+  background-color: var(--floresta-nav);
+  height: 76px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-nexa-stacked {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--branco);
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  line-height: 0.92;
+}
+
+.logo-nexa-stacked .top {
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.logo-nexa-stacked .bottom {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.navbar-floresta .nav-links a {
+  color: var(--preto);
+  font-weight: 600;
+}
+
+/* Remove o retângulo ao passar o mouse nos links não selecionados (todas as guias) */
+.nav-links a:not(.ativo):hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: #FF007F; /* Cor da palavra ao passar o mouse nas páginas gerais */
+}
+
+/* Cor da palavra ao passar o mouse especificamente na barra do NexaQuest */
+.navbar-floresta .nav-links a:not(.ativo):hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: #B6E188;
+}
+
+.navbar-floresta .nav-links a.ativo {
+  background-color: var(--floresta-ativo);
+  color: var(--floresta-nav);
+}
+
+/* ==========================================================================
+   3. FUNDOS COM GRID (PRETO E MAGENTA)
+   ========================================================================== */
+.fundo-grid-preto {
+  background-color: var(--preto);
+  background-image:
+    linear-gradient(to right, var(--grid-escuro) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--grid-escuro) 1.5px, transparent 1.5px);
+  background-size: 48px 48px;
+}
+
+.fundo-grid-magenta {
+  background-color: var(--magenta);
+  background-image:
+    linear-gradient(to right, var(--magenta-grid) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--magenta-grid) 1.5px, transparent 1.5px);
+  background-size: 48px 48px;
+  min-height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ==========================================================================
+   4. TELA INICIAL — HERO (DESKTOP - 1 E DESKTOP - 15)
+   ========================================================================== */
+.hero-inicio {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 0 48px 64px;
+  position: relative;
+  overflow: hidden;
+  gap: 24px;
+}
+
+.hero-esquerda {
+  max-width: 720px;
+  z-index: 2;
+}
+
+.slogan-escada {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 56px;
+}
+
+.slogan-linha {
+  font-family: var(--fonte-ui);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  letter-spacing: 6px;
+  line-height: 1.05;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.slogan-linha.linha-1 {
+  color: var(--branco);
+  margin-left: 0;
+}
+
+.slogan-linha.linha-2 {
+  color: var(--branco);
+  margin-left: clamp(24px, 7vw, 110px);
+}
+
+.slogan-linha.linha-3 {
+  color: var(--magenta);
+  font-weight: 700;
+  margin-left: clamp(48px, 12vw, 190px);
+}
+
+.letra-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.82em;
+  height: 0.92em;
+  border: 0.08em solid currentColor;
+  border-radius: 0.14em;
+  margin: 0 0.08em 0 0.02em;
+  padding: 0.08em;
+}
+
+.letra-icone svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 44px;
+  margin-left: 24px;
+}
+
+.btn-hero-magenta {
+  background-color: var(--magenta);
+  color: var(--branco);
+  font-family: var(--fonte-ui);
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 16px 34px;
+  text-decoration: none;
+  border: 2px solid var(--magenta);
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.btn-hero-magenta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.btn-hero-contorno {
+  background-color: var(--preto);
+  color: var(--branco);
+  font-family: var(--fonte-ui);
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 16px 34px;
+  text-decoration: none;
+  border: 2px solid var(--branco);
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-hero-contorno:hover {
+  background-color: var(--branco);
+  color: var(--preto);
+}
+
+.hero-direita-bloco {
+  width: clamp(220px, 28vw, 390px);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.hero-direita-bloco img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   5. TELA ACESSO / LOGIN (DESKTOP - 3)
+   ========================================================================== */
+.caixa-acesso {
+  background-color: var(--preto);
+  width: 100%;
+  max-width: 860px;
+  padding: 52px 56px 40px 56px;
+  position: relative;
+  margin-bottom: 44px;
+}
+
+.acesso-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.acesso-titulo {
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 2.35rem;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--branco);
+  text-transform: uppercase;
+}
+
+.campo-figma {
+  margin-bottom: 22px;
+}
+
+.campo-figma label {
+  display: block;
+  font-family: var(--fonte-ui);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--branco);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.campo-figma input {
+  width: 100%;
+  height: 48px;
+  background-color: var(--preto);
+  border: 2px solid var(--branco);
+  color: var(--branco);
+  font-family: var(--fonte-ui);
+  font-size: 1.05rem;
+  padding: 0 14px;
+  outline: none;
+}
+
+.campo-figma input:focus {
+  border-color: var(--lima);
+}
+
+.link-esqueceu {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  text-decoration: none;
+}
+
+.link-esqueceu:hover {
+  color: var(--branco);
+  text-decoration: underline;
+}
+
+.aba-btn-entrar {
+  position: absolute;
+  bottom: -28px;
+  left: 44%;
+  transform: translateX(-50%);
+  background-color: var(--preto);
+  padding: 12px 18px;
+}
+
+.btn-branco-solido {
+  background-color: var(--branco);
+  color: var(--preto);
+  border: none;
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 8px 22px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-branco-solido:hover {
+  background-color: var(--lima);
+}
+
+.acesso-acoes-inferiores {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+.btn-crie-conta {
+  background-color: var(--preto);
+  color: var(--branco);
+  font-family: var(--fonte-ui);
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 16px 34px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-crie-conta:hover {
+  background-color: #181818;
+}
+
+.btn-google-figma {
+  background-color: var(--branco);
+  color: var(--preto);
+  font-family: var(--fonte-ui);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 360px;
+}
+
+.btn-google-figma .g-marca {
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3.4rem;
+  color: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.btn-google-figma span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   6. CADASTRO EM ETAPAS & ESQUECEU A SENHA (DESKTOP - 4, 6, 7, 8, 9, 10, 12)
+   ========================================================================== */
+.caixa-etapa-preta {
+  background-color: var(--preto);
+  width: 100%;
+  max-width: 860px;
+  min-height: 470px;
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.etapa-duas-colunas {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.coluna-avatar-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.avatar-circulo {
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  background-color: var(--cinza-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+.avatar-circulo img.foto-preview {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-circulo svg {
+  width: 105px;
+  height: 105px;
+  fill: var(--branco);
+}
+
+.avatar-circulo.grande {
+  width: 210px;
+  height: 210px;
+}
+
+.avatar-circulo.grande svg {
+  width: 135px;
+  height: 135px;
+}
+
+.btn-mais-foto {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #9CA3AF;
+  color: #374151;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-mais-foto:hover {
+  background-color: var(--lima);
+  color: var(--preto);
+}
+
+.titulo-caixa-etapa {
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  color: var(--branco);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.inputs-data-nascimento {
+  display: flex;
+  gap: 16px;
+}
+
+.inputs-data-nascimento input.dia,
+.inputs-data-nascimento input.mes {
+  width: 78px;
+  text-align: center;
+}
+
+.inputs-data-nascimento input.ano {
+  width: 112px;
+  text-align: center;
+}
+
+.btn-avancar-contorno {
+  background-color: var(--preto);
+  color: var(--branco);
+  border: 2px solid var(--branco);
+  font-family: var(--fonte-ui);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 14px 32px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-avancar-contorno:hover {
+  background-color: var(--branco);
+  color: var(--preto);
+}
+
+.etapa-centralizada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 26px;
+  max-width: 580px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.etapa-step {
+  display: none;
+}
+
+.etapa-step.ativa {
+  display: block;
+}
+
+/* ==========================================================================
+   7. TELA CONTA DO JOGADOR (DESKTOP - 13)
+   ========================================================================== */
+.pagina-conta {
+  background-color: var(--preto);
+  min-height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conta-topo {
+  width: 100%;
+  padding: 44px 20px 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 5px solid var(--lima);
+}
+
+.conta-topo .avatar-circulo {
+  background-color: #363636;
+  width: 195px;
+  height: 195px;
+  margin-bottom: 18px;
+}
+
+.conta-label-nome {
+  font-family: var(--fonte-ui);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--branco);
+  margin-bottom: 8px;
+}
+
+.conta-input-nome {
+  width: 100%;
+  max-width: 520px;
+  height: 44px;
+  background-color: var(--branco);
+  border: 2.5px solid var(--magenta);
+  color: var(--preto);
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-align: center;
+  padding: 0 14px;
+}
+
+.conta-info-secao {
+  width: 100%;
+  max-width: 900px;
+  padding: 28px 20px 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conta-info-titulo {
+  font-family: var(--fonte-ui);
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.caixa-info-lima {
+  width: 100%;
+  background-color: var(--lima);
+  border: 3px solid var(--magenta);
+  padding: 28px 36px;
+  color: var(--preto);
+}
+
+.linha-info-conta {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.linha-info-conta:last-child {
+  margin-bottom: 0;
+}
+
+.linha-info-conta label {
+  font-family: var(--fonte-ui);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.15;
+  color: var(--preto);
+}
+
+.campo-branco-magenta {
+  background-color: var(--branco);
+  border: 2px solid var(--magenta);
+  height: 36px;
+  padding: 0 12px;
+  font-family: var(--fonte-ui);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--preto);
+}
+
+.data-magenta-grupo {
+  display: flex;
+  gap: 18px;
+}
+
+.data-magenta-grupo input {
+  width: 72px;
+  text-align: center;
+}
+
+.data-magenta-grupo input.ano {
+  width: 104px;
+}
+
+.painel-xp-conta {
+  width: 100%;
+  margin-top: 24px;
+  background-color: #111111;
+  border: 2px solid var(--lima);
+  padding: 20px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   8. TELA SOBRE A NEXA PLAY & CONTATO (DESKTOP - 5 E DESKTOP - 16)
+   ========================================================================== */
+.pagina-sobre {
+  padding: 48px 40px 64px 40px;
+}
+
+.container-sobre {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.titulo-conheca {
+  font-family: var(--fonte-ui);
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  color: var(--lima);
+  letter-spacing: 2px;
+  margin-bottom: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.titulo-conheca .nexa-destaque {
+  font-family: var(--fonte-logo);
+  font-weight: 900;
+  color: var(--magenta);
+  letter-spacing: 0;
+}
+
+.sobre-grid-superior {
+  display: grid;
+  grid-template-columns: 1fr 390px;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.sobre-cards-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.card-lima-texto {
+  background-color: var(--lima);
+  color: var(--preto);
+  padding: 24px 28px;
+  font-family: var(--fonte-ui);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+    font-family: 'Aldrich', sans-serif !important;
+}
+
+.card-lima-texto .magenta-txt {
+  color: var(--magenta);
+  font-weight: 700;
+}
+
+.cubo-container img {
+  width: 80%;
+  max-width: 380px;
+  display: block;
+  margin: 30px auto;
+}
+
+.moldura-contato {
+  background-color: var(--preto);
+  border: 2.5px solid var(--lima);
+  padding: 40px 44px;
+}
+
+.titulo-contato {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--fonte-ui);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 24px;
+}
+
+.barras-contato {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.barras-contato span {
+  display: inline-block;
+  width: 8px;
+  height: 30px;
+}
+
+.barra-lima { background-color: var(--lima); }
+.barra-magenta { background-color: var(--magenta); }
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+
+.contato-info p.duvida {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 18px;
+  max-width: 420px;
+}
+
+.mande-mensagem-sublinhado {
+  display: inline-block;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--lima);
+  border-bottom: 4px dashed var(--lima);
+  padding-bottom: 4px;
+  margin-bottom: 32px;
+}
+
+.lista-canais {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.canal-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.canal-item svg {
+  width: 44px;
+  height: 44px;
+  color: var(--lima);
+  flex-shrink: 0;
+}
+
+.canal-item strong {
+  display: block;
+  color: var(--lima);
+  font-size: 1.15rem;
+}
+
+.canal-item span {
+  color: #D1D5DB;
+  font-size: 1.05rem;
+}
+
+.caixa-form-contato {
+  border: 2.5px solid var(--lima);
+  padding: 24px;
+  background-color: var(--preto);
+}
+
+.caixa-form-contato h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.caixa-form-contato label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+  color: #E5E7EB;
+}
+
+.caixa-form-contato input,
+.caixa-form-contato textarea {
+  width: 100%;
+  background-color: var(--cinza-input);
+  border: 1.5px solid #9CA3AF;
+  color: var(--branco);
+  font-family: var(--fonte-ui);
+  padding: 8px 10px;
+  margin-bottom: 14px;
+}
+
+.btn-enviar-lima {
+  width: 100%;
+  background-color: var(--lima);
+  color: var(--preto);
+  border: none;
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-enviar-lima:hover {
+  background-color: var(--lima-escuro);
+}
+
+/* ==========================================================================
+   9. TELA NEXAQUEST — FLORESTA & SOBRE O NEXA QUEST (DESKTOP - 2 E 14)
+   ========================================================================== */
+.banner-floresta {
+  position: relative;
+  min-height: 590px;
+  background: url('../img/floresta-pixel.svg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 14px solid var(--floresta-nav);
+}
+
+.logo-nexaquest-hero {
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 8px;
+}
+
+.subtitulo-vida-em-jogo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  color: #C5E89A;
+  margin-bottom: 4px;
+  margin-top: 24px;
+}
+
+.subtitulo-vida-em-jogo::before,
+.subtitulo-vida-em-jogo::after {
+  content: '';
+  display: inline-block;
+  width: 46px;
+  height: 3px;
+  background-color: #C5E89A;
+}
+
+.descricao-banner-quest {
+  max-width: 520px;
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: #C5E89A;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.btn-jogue-floresta {
+  margin-top: 32px;
+  background-color: rgba(88, 148, 92, 0.78);
+  border: 2px solid var(--branco);
+  color: var(--branco);
+  font-family: var(--fonte-ui);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  padding: 12px 32px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.15s;
+
+}
+
+.btn-jogue-floresta:hover {
+  background-color: var(--floresta-nav);
+}
+
+.secao-sobre-quest {
+  background-color: var(--floresta-verde);
+  color: var(--preto);
+  padding: 44px 32px 64px 32px;
+  position: relative;
+  border-left: 22px solid var(--floresta-nav);
+  border-right: 22px solid var(--floresta-nav);
+}
+
+.container-quest {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.titulo-sobre-quest {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.titulo-sobre-quest .sobre-o {
+  display: block;
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: var(--preto);
+  line-height: 1.1;
+}
+
+.titulo-sobre-quest .nexa-pixel {
+  display: block;
+  font-family: var(--fonte-pixel);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+  color: var(--preto);
+  letter-spacing: 2px;
+}
+
+.quest-conteudo-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+.quest-blocos-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.bloco-pixel-verde {
+  background-color: var(--floresta-card);
+  padding: 26px 30px;
+  font-family: var(--fonte-ui);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--preto);
+  box-shadow:
+    -8px 0 0 0 var(--floresta-card),
+    8px 0 0 0 var(--floresta-card),
+    0 -8px 0 0 var(--floresta-card),
+    0 8px 0 0 var(--floresta-card);
+}
+
+.bloco-pixel-verde p + p {
+  margin-top: 18px;
+}
+
+.bloco-pixel-verde .destaque-eco {
+  color: #1F6E35;
+  font-weight: 700;
+}
+
+.quest-coluna-direita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.globo-moldura {
+  width: 270px;
+  height: 270px;
+  background-color: var(--floresta-globo);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.globo-moldura img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+  /* Desce 16px para centralizar verticalmente e amplia para 122% */
+  transform: translateY(16px) scale(1.40);
+}
+
+.lista-botoes-quest {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 270px;
+}
+
+.btn-categoria-quest {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--fonte-ui);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--preto);
+  text-align: left;
+  padding: 4px;
+  transition: transform 0.15s;
+}
+
+.btn-categoria-quest:hover,
+.btn-categoria-quest.ativo {
+  transform: translateX(6px);
+}
+
+.icone-circulo-quest {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--floresta-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 3px solid var(--preto);
+}
+
+.icone-circulo-quest svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--preto);
+}
+
+.icone-circulo-quest img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* Painel interativo de Missões / Curiosidades / Animais abaixo */
+.painel-interativo-quest {
+  margin-top: 44px;
+  background-color: var(--floresta-nav);
+  color: var(--branco);
+  padding: 28px;
+  border: 4px solid var(--floresta-card);
+}
+
+.painel-interativo-quest h3 {
+  font-family: var(--fonte-pixel);
+  font-size: 1.25rem;
+  color: var(--floresta-ativo);
+  margin-bottom: 18px;
+}
+
+.cards-eco-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.card-eco-item {
+  background-color: #0D331A;
+  border: 2px solid var(--floresta-ativo);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-eco-item h4 {
+  color: #F2C14E;
+  font-size: 1.15rem;
+}
+
+.badge-dificuldade {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: var(--floresta-ativo);
+  color: var(--preto);
+  text-transform: uppercase;
+}
+
+.btn-concluir-eco {
+  background-color: #F2C14E;
+  color: var(--preto);
+  border: none;
+  font-family: var(--fonte-ui);
+  font-weight: 700;
+  padding: 8px 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-concluir-eco:hover {
+  background-color: var(--floresta-ativo);
+}
+
+/* Mensagens de feedback */
+.msg-feedback {
+  margin-top: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.msg-sucesso { color: var(--lima); }
+.msg-erro { color: #FF6B6B; }
+
+/* ==========================================================================
+   10. RESPONSIVIDADE (MOBILE E TABLET)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .hero-inicio {
+    flex-direction: column;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .slogan-linha.linha-2,
+  .slogan-linha.linha-3 {
+    margin-left: 0;
+  }
+
+  .hero-botoes {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .acesso-grid,
+  .etapa-duas-colunas,
+  .sobre-grid-superior,
+  .contato-grid,
+  .quest-conteudo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aba-btn-entrar {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .acesso-acoes-inferiores {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-google-figma {
+    min-width: auto;
+  }
+
+  .linha-info-conta {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-nexa,
+  .navbar-floresta {
+    height: auto;
+    padding: 14px 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 1.05rem;
+    padding: 6px 10px;
+  }
+
+  .caixa-acesso,
+  .caixa-etapa-preta {
+    padding: 28px 20px;
+  }
+}
+@keyframes flutuarCirculoQuest {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.item-quest-animado {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.item-quest-animado span,
+.item-quest-animado p {
+  transition: transform 0.2s ease;
+}
+
+.circulo-quest-animado {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: var(--floresta-globo);
+  border: 3px solid #0B2916;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: flutuarCirculoQuest 2.6s ease-in-out infinite;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* Atraso entre os 3 círculos para animarem em sequência */
+.item-quest-animado:nth-child(2) .circulo-quest-animado {
+  animation-delay: 0.35s;
+}
+
+.item-quest-animado:nth-child(3) .circulo-quest-animado {
+  animation-delay: 0.7s;
+}
+
+.circulo-quest-animado svg,
+.circulo-quest-animado img {
+  transition: transform 0.22s ease;
+}
+
+/* Animação ao passar o mouse */
+.item-quest-animado:hover .circulo-quest-animado {
+  animation-play-state: paused;
+  transform: scale(1.14);
+  background-color: #DDF7BA;
+  box-shadow: 0 4px 0 #0B2916;
+}
+
+.item-quest-animado:hover .circulo-quest-animado svg,
+.item-quest-animado:hover .circulo-quest-animado img {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.item-quest-animado:hover span,
+.item-quest-animado:hover p {
+  transform: translateX(6px);
+}
+
+/* Efeito ao clicar */
+.item-quest-animado:active .circulo-quest-animado {
+  transform: scale(0.95);
+  box-shadow: 0 1px 0 #0B2916;
+}
+
+.btn-categoria-quest.ativo {
+  transform: none;
+}
+
+.btn-categoria-quest.ativo .circulo-quest-animado {
+  background-color: #DDF7BA;
+  box-shadow: 0 3px 0 #0B2916;
+}
+
+.letra-d {
+  border-radius: 2px 50% 50% 2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+.letra-d svg,
+.letra-d img {
+  display: block;
+  margin: 0;
+  transform: translateX(-2px) scale(0.7);
+}
+
+/* Aumenta a barra de navegação igualmente em todas as páginas */
+.navbar,
+.navbar-floresta {
+  min-height: 92px;
+  padding: 18px 48px;
+}
+
+.logo-nexa-stacked {
+  line-height: 1;
+}
+
+.logo-nexa-stacked .top {
+  font-size: 1.05rem;
+  letter-spacing: 3px;
+}
+
+.logo-nexa-stacked .bottom {
+  font-size: 2.05rem;
+  letter-spacing: 2px;
+}
+
+.logo-nexa-play {
+  font-size: 2.3rem;
+}
+
+.nav-links {
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 1.2rem;
+  padding: 12px 22px;
+}
+
+/* Cor de fundo da barra superior apenas no NexaQuest */
+.navbar-floresta {
+  background-color: #45A85A; /* Troque pela cor de fundo desejada */
+}
+
+/* Cor da logo "NEXA PLAY" nessa barra */
+.navbar-floresta .logo-nexa-stacked {
+  color: #000000;
+}
+
+/* Cor dos textos dos links (Início, NexaQuest, Acesso, Sobre) */
+.navbar-floresta .nav-links a {
+  color: #000000;
+}
+
+/* Cor do botão "NexaQuest" quando a aba está selecionada */
+.navbar-floresta .nav-links a.ativo {
+  background-color: #B6E188; /* Cor do fundo da caixinha */
+  color: #0B2916;            /* Cor do texto "NexaQuest" */
+}
+
+/* Cor ao passar o mouse por cima dos links dessa barra */
+.navbar-floresta .nav-links a:hover {
+  background-color: #9ED16B;
+  color: #0B2916;
+}
+
+/* Iguala altura, fonte e espaçamento do cabeçalho em todas as páginas */
+header:has(.nav-links),
+.navbar,
+.navbar-floresta {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 92px !important;
+  min-height: 92px !important;
+  padding: 0 48px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-family: 'Chakra Petch', sans-serif !important;
+}
+
+header:has(.nav-links) .logo-nexa-stacked,
+.navbar .logo-nexa-stacked,
+.navbar-floresta .logo-nexa-stacked {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+header:has(.nav-links) .logo-nexa-stacked .top,
+.navbar .logo-nexa-stacked .top,
+.navbar-floresta .logo-nexa-stacked .top {
+  font-size: 1.05rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: 3px !important;
+}
+
+header:has(.nav-links) .logo-nexa-stacked .bottom,
+.navbar .logo-nexa-stacked .bottom,
+.navbar-floresta .logo-nexa-stacked .bottom {
+  font-size: 2.05rem !important;
+  line-height: 1.05 !important;
+  letter-spacing: 2px !important;
+}
+
+header:has(.nav-links) .nav-links,
+.navbar .nav-links,
+.navbar-floresta .nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+}
+
+header:has(.nav-links) .nav-links a,
+.navbar .nav-links a,
+.navbar-floresta .nav-links a {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: 'Chakra Petch', sans-serif !important;
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  padding: 12px 22px !important;
+  margin: 0 !important;
+}
+
+/* Logo NEXA PLAY no estilo exato do protótipo (guia NexaQuest) */
+.logo-nexa-stacked {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  gap: 0px !important;
+  height: 110px !important;
+  min-height: 110px !important;
+}
+
+.logo-nexa-stacked .top {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.32rem !important;
+  line-height: 1 !important;
+  letter-spacing: 2px !important;
+  color: #FFFFFF !important;
+  font-size: 1.75rem !important;
+  letter-spacing: 3px !important;
+}
+
+.logo-nexa-stacked .bottom {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 2.75rem !important;
+  line-height: 0.92 !important;
+  letter-spacing: 1px !important;
+  color: #FFFFFF !important;
+  font-size: 3.6rem !important;
+  line-height: 0.9 !important;
+  letter-spacing: 1px !important;
+}
+

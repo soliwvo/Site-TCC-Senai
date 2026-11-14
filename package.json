@@ -1,0 +1,31 @@
+{
+  "name": "nexa-play-quest",
+  "version": "1.0.0",
+  "description": "Plataforma gamificada Nexa Quest (Nexa Play) - Estrutura modular SENAI (Node.js, Express, Sequelize, MySQL e Front-end integrado)",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "keywords": [
+    "nexa-play",
+    "nexa-quest",
+    "senai",
+    "nodejs",
+    "express",
+    "sequelize",
+    "mysql"
+  ],
+  "author": "Equipe Nexa Play",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "sequelize": "^6.37.3"
+  },
+  "allowScripts": {
+    "bcrypt@5.1.1": true
+  }
+}

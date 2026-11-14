@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" fill="none">
+  <!-- Bloco pixelado magenta da tela inicial (Desktop - 1) -->
+  <rect x="0" y="0" width="120" height="65" fill="#F20089"/>
+  <rect x="55" y="65" width="65" height="145" fill="#F20089"/>
+  <rect x="120" y="100" width="170" height="75" fill="#F20089"/>
+  <rect x="290" y="25" width="70" height="270" fill="#F20089"/>
+  <rect x="185" y="175" width="105" height="120" fill="#F20089"/>
+  <rect x="185" y="295" width="68" height="65" fill="#F20089"/>
+</svg>
