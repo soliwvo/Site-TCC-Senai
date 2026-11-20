@@ -12,7 +12,7 @@ Plataforma web gamificada de educação ambiental e engajamento sustentável, de
 
 ## 🌐 Acesso Online (Produção)
 
-* **Aplicação hospedada na Vercel:** [https://SEU-LINK-AQUI.vercel.app](https://SEU-LINK-AQUI.vercel.app)
+* **Aplicação hospedada na Vercel:** (https://site-tcc-senai-c1ua.vercel.app/)
 
 ### Conta de Demonstração (Para Avaliação)
 Caso deseje testar o sistema sem realizar um novo cadastro, utilize as credenciais abaixo:
