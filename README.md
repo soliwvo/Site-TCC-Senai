@@ -1,4 +1,4 @@
-# 🌱 Nexa Play — EcoQuest
+# 🌱 Nexa Play — NexaQuest
 
 ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4.x-000000?style=for-the-badge&logo=express&logoColor=white)
