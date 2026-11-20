@@ -1,4 +1,4 @@
-# 🌱 Nexa Play — EcoQuest
+# 🌱 Nexa Play — NexaQuest
 
 ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4.x-000000?style=for-the-badge&logo=express&logoColor=white)
@@ -12,7 +12,7 @@ Plataforma web gamificada de educação ambiental e engajamento sustentável, de
 
 ## 🌐 Acesso Online (Produção)
 
-* **Aplicação hospedada na Vercel:** [https://SEU-LINK-AQUI.vercel.app](https://SEU-LINK-AQUI.vercel.app)
+* **Aplicação hospedada na Vercel:** https://site-tcc-senai-c1ua.vercel.app/
 
 ### Conta de Demonstração (Para Avaliação)
 Caso deseje testar o sistema sem realizar um novo cadastro, utilize as credenciais abaixo:
