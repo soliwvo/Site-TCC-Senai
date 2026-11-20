@@ -131,3 +131,40 @@ Os testes abaixo foram executados inicialmente em ambiente local (`localhost:300
 | **CT06** | Conclusão de Missão e Pontuação | Usuário autenticado no sistema. | 1. Selecionar uma missão disponível.<br>2. Marcar como concluída. | Progresso salvo na nuvem e pontuação do usuário atualizada na interface. | ✅ **Aprovado** |
 | **CT07** | Desbloqueio de Conquistas | Usuário atingir pontuação necessária. | 1. Concluir missões até atingir o requisito da conquista.<br>2. Acessar aba de conquistas. | Conquista exibida como desbloqueada no perfil do usuário. | ✅ **Aprovado** |
 | **CT08** | Persistência em Nuvem Multi-dispositivo | Dados salvos nos testes anteriores. | 1. Recarregar a página (`F5`).<br>2. Acessar o link da Vercel pelo navegador do smartphone. | Usuário, pontos e missões concluídas permanecem salvos no TiDB Cloud. | ✅ **Aprovado** |
+
+
+
+
+flowchart LR
+    Visitante["👤 Visitante"]
+    Usuario["👤 Usuário Autenticado"]
+    Sistema["⚙️ Sistema (Seed)"]
+
+    subgraph NexaPlay["Sistema Nexa Play — EcoQuest"]
+        UC1(["UC01: Realizar Cadastro"])
+        UC2(["UC02: Realizar Login"])
+        UC3(["UC03: Consultar Perfil e Pontos"])
+        UC4(["UC04: Listar Missões"])
+        UC5(["UC05: Concluir Missão"])
+        UC6(["UC06: Atualizar Pontuação e Progresso"])
+        UC7(["UC07: Desbloquear Conquista"])
+        UC8(["UC08: Visualizar Conquistas"])
+        UC9(["UC09: Enviar e Ler Mensagens"])
+        UC10(["UC10: Popular Dados Iniciais"])
+    end
+
+    Visitante --> UC1
+    Visitante --> UC2
+
+    Usuario --> UC3
+    Usuario --> UC4
+    Usuario --> UC5
+    Usuario --> UC8
+    Usuario --> UC9
+
+    Sistema --> UC10
+
+    UC5 -. "<<include>>" .-> UC6
+    UC7 -. "<<extend>>" .-> UC6
+
+    
