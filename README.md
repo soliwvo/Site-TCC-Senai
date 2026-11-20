@@ -1,90 +1,68 @@
-# Nexa Play — Plataforma Nexa Quest
+# 🌱 Nexa Play — EcoQuest
 
-Sistema full-stack desenvolvido no padrão arquitetural dos **Módulos 1 a 9 (SENAI - Desenvolvimento de Sistemas)** para o projeto **Nexa Quest** da startup **Nexa Play**.
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-4.x-000000?style=for-the-badge&logo=express&logoColor=white)
+![Sequelize](https://img.shields.io/badge/Sequelize-ORM-52B0E7?style=for-the-badge&logo=sequelize&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-TiDB_Cloud-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-## Estrutura de Pastas
+Plataforma web gamificada de educação ambiental e engajamento sustentável, desenvolvida como Trabalho de Conclusão de Curso (TCC) no **SENAI**.
+
+---
+
+## 🌐 Acesso Online (Produção)
+
+* **Aplicação hospedada na Vercel:** [https://SEU-LINK-AQUI.vercel.app](https://SEU-LINK-AQUI.vercel.app)
+
+### Conta de Demonstração (Para Avaliação)
+Caso deseje testar o sistema sem realizar um novo cadastro, utilize as credenciais abaixo:
+* **E-mail:** `[exemplo@nexaplay.com]`
+* **Senha:** `[123456]`
+
+---
+
+## 🎯 Sobre o Projeto
+
+O **Nexa Play** utiliza mecânicas de gamificação — como missões práticas, acúmulo de pontuação e desbloqueio de conquistas (*badges*) — para incentivar hábitos sustentáveis e a conscientização ecológica no dia a dia.
+
+### Principais Funcionalidades
+* **Autenticação e Controle de Acesso:** Cadastro de novos usuários e login protegido por tokens **JWT (JSON Web Token)**.
+* **Sistema de Missões:** Listagem de desafios ambientais, acompanhamento de status e registro de conclusão.
+* **Progresso e Conquistas:** Atualização dinâmica da evolução do usuário e desbloqueio automático de conquistas conforme o desempenho.
+* **Interação e Mensagens:** Registro e exibição de mensagens na plataforma.
+* **Inicialização Automática (*Seed*):** Sincronização automática das tabelas e carregamento de dados iniciais (missões e conquistas padrão) na primeira conexão com o banco.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Front-end:** HTML5, CSS3 e JavaScript (Vanilla) servidos de forma estática pelo Express.
+* **Back-end:** Node.js com framework Express estruturado em arquitetura MVC.
+* **Banco de Dados & ORM:** MySQL gerenciado via **Sequelize ORM**, hospedado em nuvem no **TiDB Cloud (Serverless)** com comunicação criptografada via **SSL**.
+* **Segurança:** Autenticação baseada em `JWT` e isolamento de credenciais via variáveis de ambiente (`dotenv`).
+* **Infraestrutura e Deploy:** Versionamento com Git/GitHub e hospedagem *serverless* na **Vercel**.
+
+---
+
+## 📁 Estrutura do Projeto
 
 ```text
 nexa-play/
-├── docs/                       # Requisitos, Script SQL e Plano de Testes (Módulos 6 e 7)
-├── public/                     # Front-end HTML, CSS e JS Vanilla (Módulos 8 e 9)
-│   ├── css/
-│   │   └── estilo.css
-│   ├── js/
-│   │   ├── comum.js
-│   │   ├── login.js
-│   │   ├── cadastro.js
-│   │   ├── painel.js
-│   │   ├── missoes.js
-│   │   └── conquistas.js
-│   ├── index.html              # Tela de Login
-│   ├── cadastro.html           # Tela de Cadastro de Usuário
-│   ├── painel.html             # Painel do Jogador / Administrador
-│   ├── missoes.html            # Jornadas, Missões e Conclusão
-│   └── conquistas.html         # Conquistas (Badges) e Histórico
-├── src/                        # Back-end Node.js + Express + Sequelize (Módulos 1 a 5)
+├── docs/
+│   ├── nexa_quest.sql            # Script DDL/estrutura do banco de dados
+│   └── requisitos_e_testes.md    # Especificação de requisitos e casos de teste
+├── public/                       # Arquivos do Front-end (HTML, CSS, JS e imagens)
+├── src/
 │   ├── config/
-│   │   ├── database.js
-│   │   └── seed.js
-│   ├── controllers/
-│   │   ├── usuarioController.js
-│   │   ├── authController.js
-│   │   ├── missaoController.js
-│   │   ├── progressoController.js
-│   │   └── conquistaController.js
-│   ├── middlewares/
-│   │   ├── auth.js
-│   │   └── checkRole.js
-│   ├── models/
-│   │   ├── Usuario.js
-│   │   ├── Missao.js
-│   │   ├── ProgressoMissao.js
-│   │   └── Conquista.js
-│   ├── routes/
-│   │   ├── usuarioRoutes.js
-│   │   ├── authRoutes.js
-│   │   ├── missaoRoutes.js
-│   │   ├── progressoRoutes.js
-│   │   └── conquistaRoutes.js
-│   └── app.js
-├── .env
-├── .env.example
+│   │   ├── database.js           # Conexão Sequelize (suporte local e SSL em nuvem)
+│   │   └── seed.js               # População automática de dados iniciais
+│   ├── controllers/              # Regras de negócio e tratamento das requisições
+│   ├── middlewares/              # Interceptadores de validação e autenticação JWT
+│   ├── models/                   # Definição das entidades e relacionamentos do banco
+│   ├── routes/                   # Definição dos endpoints da API REST
+│   └── app.js                    # Ponto de entrada da aplicação Express
 ├── .gitignore
-└── package.json
-```
-
-## Como Executar o Projeto (Passo a Passo)
-
-1. **Desbloquear scripts no PowerShell (se estiver no Windows):**
-   ```powershell
-   Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-   ```
-
-2. **Instalar as dependências:**
-   ```bash
-   npm install
-   ```
-
-3. **Criar o banco de dados no MySQL Workbench:**
-   ```sql
-   CREATE DATABASE nexa_quest;
-   ```
-   *(Opcional: você também pode executar o script completo em `docs/banco_de_dados.sql`).*
-
-4. **Configurar o arquivo `.env`:**
-   Edite o arquivo `.env` na raiz do projeto com o usuário, senha e porta do seu MySQL local.
-
-5. **Iniciar o servidor:**
-   ```bash
-   node src/app.js
-   ```
-
-6. **Acessar no navegador:**
-   Abra `http://localhost:3000`.
-
-## Usuários de Teste Criados Automaticamente
-
-Ao iniciar o servidor pela primeira vez com o banco vazio, o arquivo `src/config/seed.js` cria dados iniciais para facilitar seus testes:
-
-- **Administrador:** `admin@nexaplay.com` | Senha: `123456`
-- **Jogador:** `jogador@nexaplay.com` | Senha: `123456`
+├── package.json
+├── package-lock.json
+├── README.md
+└── vercel.json                   # Configuração de rotas serverless para a Vercel
