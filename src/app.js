@@ -28,4 +28,8 @@ sequelize.authenticate()
 sequelize.sync()
   .then(() => popularDadosIniciais());
 
-app.listen(3000, () => console.log('Servidor Nexa Play rodando na porta 3000'));
+if (require.main === module) {
+  app.listen(3000, () => console.log('Servidor Nexa Play rodando na porta 3000'));
+}
+
+module.exports = app;
